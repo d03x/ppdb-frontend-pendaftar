@@ -2,7 +2,7 @@
 
 const AppMain = (props : any) => {
     return (
-        <div className='m-4 rounded'>
+        <div className='m-4 mt-16 rounded'>
             {props.children}
         </div>
     );
