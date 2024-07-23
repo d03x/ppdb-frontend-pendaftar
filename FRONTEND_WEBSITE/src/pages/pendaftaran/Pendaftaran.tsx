@@ -1,12 +1,13 @@
 import BreadCrumb from "@/components/BreadCrumb";
 import {  Steps } from "antd";
-import {useState} from "react";
+import {lazy, useState} from "react";
 import {NavigateFunction, useNavigate} from "react-router-dom";
-import DataDiri from "@pages/pendaftaran/steps/DataDiri.tsx";
-import OrangTua from "@pages/pendaftaran/steps/OrangTua.tsx"
-import SekolahAsal from "@pages/pendaftaran/steps/SekolahAsal.tsx"
-import NilaiRapot from "@pages/pendaftaran/steps/NilaiRapot.tsx"
-import StepFinish from "@pages/pendaftaran/steps/StepFinish.tsx";
+
+const DataDiri = lazy(()=>import('@pages/pendaftaran/steps/DataDiri.tsx'))
+const OrangTua = lazy(()=>import('@pages/pendaftaran/steps/OrangTua.tsx'))
+const SekolahAsal = lazy(()=>import('@pages/pendaftaran/steps/SekolahAsal.tsx'))
+const NilaiRapot = lazy(()=>import('@pages/pendaftaran/steps/NilaiRapot.tsx'))
+const StepFinish = lazy(()=>import('@pages/pendaftaran/steps/StepFinish.tsx'));
 const Pendaftaran = () => {
     const [current,setCurrent] = useState<number>(0);
     const breadcrumbItems = [
@@ -52,7 +53,7 @@ const Pendaftaran = () => {
                     <div className={"text-xs font-bold"}>Step {current+1} dari {items.length} - {items[current].title}</div>
                 </div>
                 <div className="">
-                    { items[current].component }
+                { items[current].component }
                 </div>
             </div>
         </>

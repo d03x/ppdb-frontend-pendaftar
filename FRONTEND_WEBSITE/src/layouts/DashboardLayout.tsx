@@ -4,10 +4,19 @@ import Sidebar from "@layouts/Sidebar";
 import Navbar from "@layouts/Navbar";
 import { useAppContext } from "@/hooks/useAppContext";
 import AppMain from "@/components/AppMain";
+import { Skeleton } from "antd";
 
 export type DashboardLayoutProps = {
     children: ReactNode,
     user: any,
+}
+
+const SkeletonData = () => {
+    return <>
+        <div className="bg-white rounded-lg p-4 lg:p-10">
+            <Skeleton/>
+    </div>
+    </>
 }
 
 const DashboardLayout = ({ children }: DashboardLayoutProps) => {
@@ -20,7 +29,7 @@ const DashboardLayout = ({ children }: DashboardLayoutProps) => {
                     <Navbar />
                     <main className={`${sidebarIsOpen ? 'ml-0' : ' ml-0 md:ml-[15em]'}`}>
                         <AppMain>
-                            <Suspense fallback={"Loading..."}>
+                            <Suspense fallback={<SkeletonData/>}>
                                 {children}
                             </Suspense>
                         </AppMain>

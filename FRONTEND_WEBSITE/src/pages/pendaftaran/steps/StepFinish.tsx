@@ -1,8 +1,7 @@
+import {FC} from "react";
 
-function StepFinish(props) {
-    return (
-        <div>Finish</div>
-    );
+  const StepFinish : FC = ()=>{
+    return <h1>Indonesia</h1>
 }
 
 export default StepFinish;
